@@ -1,6 +1,7 @@
 let config = {
   debug: true,
   port: process.env.PORT || 3000,
+  database: 'data.db',
   redis_host: '127.0.0.1',
   redis_port: 6379,
   redis_db: 0,
@@ -11,7 +12,7 @@ let config = {
   site_name: 'Nodeclub Lite',
   site_description: 'Lite version for Nodeclub',
   site_keywords: 'nodeclub lite',
-  site_navs: ['/about', '关于'],
+  site_tabs: ['all', 'marked', 'share', 'ask', 'high', 'others'],
   list_topic_count: 20,
   allow_sign_up: true,
 };

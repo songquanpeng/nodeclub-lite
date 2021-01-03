@@ -20,10 +20,11 @@ let config = require('./config');
 const http = require('http');
 const app = express();
 app.locals.config = config;
+app.locals.page = undefined;
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.locals._layoutFile = 'layout.html';
+
 app.use(
   serveStatic(path.join(__dirname, 'public'), {
     maxAge: '600000',
