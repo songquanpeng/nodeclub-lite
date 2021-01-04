@@ -36,18 +36,25 @@ app.use(bodyParser.json({ limit: '1mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' }));
 app.use(require('cookie-parser')(config.session_secret));
 app.use(compression());
+// app.use(
+//   session({
+//     secret: config.session_secret,
+//     store: new RedisStore({
+//       client: redisClient,
+//       port: config.redis_port,
+//       host: config.redis_host,
+//       db: config.redis_db,
+//       pass: config.redis_password,
+//     }),
+//     resave: false,
+//     saveUninitialized: false,
+//   })
+// );
 app.use(
   session({
-    secret: config.session_secret,
-    store: new RedisStore({
-      client: redisClient,
-      port: config.redis_port,
-      host: config.redis_host,
-      db: config.redis_db,
-      pass: config.redis_password,
-    }),
-    resave: false,
-    saveUninitialized: false,
+    resave: true,
+    saveUninitialized: true,
+    secret: crypto.randomBytes(64).toString('hex'),
   })
 );
 
