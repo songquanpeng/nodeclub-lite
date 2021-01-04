@@ -1,48 +1,97 @@
 <%- include('./partials/header') %>
-<div class="columns is-desktop">
+<div class="columns is-desktop main">
     <div class="column">
-        <div class="page-card-list">
-            <% if (pages.length){ %>
-                <% pages.forEach((page)=>{ %>
-                    <div class="box">
-                        <article class="media">
-                            <div class="media-content">
-                                <div class="content">
-                                    <div class="page-card-title"><a
-                                                href="/page/<%= page.link %>"><%= page.title ? page.title : 'No title' %></a>
-                                    </div>
-                                    <% page.tag.trim().split(" ").forEach(function (tag) { if(tag !== ""){ %>
-                                        <a class="tag is-light" href='/tag/<%= tag %>'><%= tag %></a>
-                                    <% }}); %>
-                                    <a class="tag is-light"
-                                       href="/archive/<%= page.post_time.split('-')[0] + '/' + page.post_time.split('-')[1] %>"><%= page.post_time.substring(0, 10) %></a>
-                                    <span class="tag is-light"><%- page.view %> views</span>
-                                    <div class="page-card-text">
-                                        <%= page.description ? page.description : "No description" %>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
+        <div class="my-panel">
+            <div class="my-header header">
+                <a href="/?tab=all" class="topic-tab current-tab">全部</a>
+                <a href="/?tab=good" class="topic-tab ">精华</a>
+                <a href="/?tab=share" class="topic-tab ">分享</a>
+                <a href="/?tab=ask" class="topic-tab ">问答</a>
+                <a href="/?tab=job" class="topic-tab ">招聘</a>
+                <a href="/?tab=dev" class="topic-tab ">客户端测试</a>
+            </div>
+            <div class="my-body page-card-list">
+                <% let topics = [[], [], [], [], [], [], [], [], [], [], [], []]%>
+                <% topics.forEach((topic)=>{ %>
+                    <div class="cell">
+                        <a href="/user/lovevfp">
+                            <img src="https://avatars1.githubusercontent.com/u/285661?v=4&amp;s=120" title="lovevfp">
+                        </a>
+                        <span class="">
+                        <span class="count_of_replies" title="回复数"> 5 </span>
+                        <span class="count_separator">/</span>
+                        <span class="count_of_visits" title="点击数">56198 </span>
+                    </span>
+                        <span class="tag is-light">置顶</span>
+                        <span class="topic_title">
+                        <a href="/topic/5fe2b84498427e7b936a9f8c">
+                            TOPIC TITLE
+                        </a>
+                    </span>
+                        <a class="last_time right" href="/topic/5fe2b84498427e7b936a9f8c#5fe467db98427ef1a16aa361">
+                            <img src="https://avatars2.githubusercontent.com/u/68904051?v=4&amp;s=120">
+                            <span class="last_active_time">11 天前</span>
+                        </a>
                     </div>
-            <% })} %>
+                <%})%>
+            </div>
+            <nav class="pagination is-small" role="navigation" aria-label="pagination" style="padding: 8px">
+                <a class="pagination-previous">上一页</a>
+                <a class="pagination-next">下一页</a>
+                <ul class="pagination-list">
+                    <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+                    <li><span class="pagination-ellipsis">&hellip;</span></li>
+                    <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
+                    <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
+                    <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>
+                    <li><span class="pagination-ellipsis">&hellip;</span></li>
+                    <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
     <div class="column is-one-quarter-fullhd">
-        <div class="card">
-
-        </div>
-        <div class="card" style="margin-top: 32px">
-            <header class="card-header">
-                <p class="card-header-title">
-                    About
-                </p>
-            </header>
-            <div class="card-content">
-                <div class="content">
-
-                </div>
+        <div class="my-panel">
+            <div class="my-header">
+                个人信息
+            </div>
+            <div class="my-body">
+                这家伙很懒，什么个性签名都没有留下
             </div>
         </div>
+        <div class="my-panel">
+            <div class="my-header">
+                无人回复的话题
+            </div>
+            <div class="my-body">
+                TODO: 话题列表
+            </div>
+        </div>
+        <div class="my-panel">
+            <div class="my-header">
+                积分榜
+            </div>
+            <div class="my-body">
+                TODO：用户列表
+            </div>
+        </div>
+        <div class="my-panel">
+            <div class="my-header">
+                友情社区
+            </div>
+            <div class="my-body">
+                TODO：图片列表
+            </div>
+        </div>
+        <div class="my-panel">
+            <div class="my-header">
+                公众号二维码
+            </div>
+            <div class="my-body">
+                TODO：一张图片
+            </div>
+        </div>
+
     </div>
 </div>
 

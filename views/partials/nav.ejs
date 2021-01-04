@@ -1,8 +1,8 @@
-<nav class="navbar nav-shadow" role="navigation" aria-label="main navigation">
+<nav class="navbar nav-shadow is-dark" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-                <img src="<%- config.brand_image %>" height="50">
+                <img src="https://static2.cnodejs.org/public/images/cnodejs_light.svg" width="120">
             </a>
 
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
@@ -14,38 +14,22 @@
         </div>
         <div id="mainNavbar" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="/"> Home </a>
-                <a class="navbar-item" href="/archive"> Archive </a>
-                <a class="navbar-item" href="/page/links"> Links </a>
-                <a class="navbar-item" href="/page/about"> About </a>
-                <% if(config.nav_links !== undefined && config.nav_links !== ''){
-                    try {
-                        let dropdowns = JSON.parse(config.nav_links);
-                        dropdowns.forEach((dropdown)=>{ %>
-                            <div class="navbar-item has-dropdown is-hoverable">
-                                <a class="navbar-link">
-                                    <%- dropdown.key %>
-                                </a>
-                                <div class="navbar-dropdown">
-                                    <% if (dropdown.value) dropdown.value.forEach((link)=>{ %>
-                                        <a class="navbar-item" href="<%- link.link %>" rel="noreferrer"><%- link.text %></a>
-                                    <% }) %>
-                                </div>
-                            </div>
-                        <%})
-                    } catch (e) {console.error(e.message)}} %>
+                <div class="navbar-item">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Search">
+                        <span class="icon is-left">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                    </p>
+                </div>
             </div>
             <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <!--                    <a class="button is-primary">-->
-                        <!--                        <strong>Sign up</strong>-->
-                        <!--                    </a>-->
-                        <!--                    <a class="button is-light">-->
-                        <!--                        Log in-->
-                        <!--                    </a>-->
-                    </div>
-                </div>
+                <a class="navbar-item" href="/"> 首页 </a>
+                <a class="navbar-item" href="/"> 新手入门 </a>
+                <a class="navbar-item" href="/"> API </a>
+                <a class="navbar-item" href="/"> 关于 </a>
+                <a class="navbar-item" href="/"> 注册 </a>
+                <a class="navbar-item" href="/"> 登录 </a>
             </div>
         </div>
     </div>

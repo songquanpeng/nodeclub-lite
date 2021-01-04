@@ -1,7 +1,7 @@
 <%- include('./partials/header') %>
-<article class="message is-danger">
+<article class="message <%= isError ? "is-danger": "is-info" %>" style="margin:auto;max-width: 600px">
     <div class="message-header">
-        <p><%= title %></p>
+        <p><%= isError ? "错误": "注意" %></p>
     </div>
     <div class="message-body">
         <%= message %>

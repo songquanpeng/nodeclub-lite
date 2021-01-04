@@ -13,6 +13,10 @@ Topic.init(
     title: DataTypes.STRING,
     content: DataTypes.TEXT,
     convertedContent: DataTypes.TEXT,
+    tag: {
+      type: DataTypes.STRING,
+      defaultValue: 'others',
+    },
     isPinned: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
