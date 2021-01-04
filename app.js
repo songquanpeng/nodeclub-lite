@@ -10,8 +10,8 @@ const serveStatic = require('serve-static');
 const cors = require('cors');
 const crypto = require('crypto');
 const logger = require('./common/logger');
-let RedisStore = require('connect-redis')(session);
-let redisClient = redis.createClient();
+// let RedisStore = require('connect-redis')(session);
+// let redisClient = redis.createClient();
 
 const webRouter = require('./routes/web-router');
 const apiRouterV1 = require('./routes/api-router.v1');
