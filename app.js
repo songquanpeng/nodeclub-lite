@@ -58,19 +58,21 @@ app.use(
   })
 );
 
-app.use('/api/v1', cors(), apiRouterV1);
 app.use('/', webRouter);
+app.use('/api/v1', cors(), apiRouterV1);
 
 app.use((req, res, next) => {
   if (!res.headersSent) {
-    res.status(404);
+    res.render('message', {
+      isError: false,
+      message: '页面不存在',
+    });
   }
 });
 
 app.use((err, req, res, next) => {
   logger.error(err);
   res.locals.message = err.message;
-  console.error(err.stack);
   if (!res.headersSent) {
     res.send(err.message);
   }
