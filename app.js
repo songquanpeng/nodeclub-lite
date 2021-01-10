@@ -64,7 +64,7 @@ app.use('/api/v1', cors(), apiRouterV1);
 app.use((req, res, next) => {
   if (!res.headersSent) {
     res.render('message', {
-      isError: false,
+      isError: true,
       message: '页面不存在',
     });
   }

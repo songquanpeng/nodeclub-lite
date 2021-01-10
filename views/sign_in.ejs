@@ -1,0 +1,63 @@
+<%- include('./partials/header') %>
+<div class="columns is-desktop main">
+    <div class="column">
+        <div class="my-panel">
+            <div class="my-header header">
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="/">主页</a></li>
+                        <li class="is-active"><a href="#">登录</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="my-body">
+                <div class="columns">
+                    <div class="column is-half-desktop">
+                        <% if(message) { %>
+                            <article class="message is-danger">
+                                <div class="message-body">
+                                    <%= message %>
+                                </div>
+                            </article>
+                        <% }%>
+                        <form method="post" action="/signin">
+                            <div class="field">
+                                <label class="label" for="username">用户名</label>
+                                <div class="control">
+                                    <input class="input" type="text" id="username" name="username" required />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label" for="password">密码</label>
+                                <div class="control">
+                                    <input class="input" type="password" id="password" name="password" required />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <p class="control">
+                                    <input class="button is-success" type="submit" value="登录"/>
+                                    <a class="button is-success" href="/auth/github">
+                                        通过 Github 登录
+                                    </a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column is-one-quarter-fullhd">
+        <div class="my-panel">
+            <div class="my-header">
+                关于
+            </div>
+            <div class="my-body">
+                欢迎登录
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include('./partials/footer') %>

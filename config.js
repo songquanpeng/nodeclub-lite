@@ -8,6 +8,7 @@ let config = {
   redis_password: '',
   log_dir: 'logs',
   session_secret: 'justice',
+  auth_cookie_name: 'nodeclub_lite',
 
   site_name: 'Nodeclub Lite',
   site_description: 'Lite version for Nodeclub',

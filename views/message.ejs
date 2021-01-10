@@ -1,10 +1,49 @@
 <%- include('./partials/header') %>
-<article class="message <%= isError ? "is-danger": "is-info" %>" style="margin:auto;max-width: 600px">
-    <div class="message-header">
-        <p><%= isError ? "错误": "注意" %></p>
+<div class="columns is-desktop main">
+    <div class="column">
+        <div class="my-panel">
+            <div class="my-header header">
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="/">主页</a></li>
+                        <li class="is-active"><a href="#">通知</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="my-body">
+                <div class="columns">
+                    <div class="column is-half-desktop">
+                        <% if(message) { %>
+                            <article class="message <%= isError ? 'is-danger' : 'is-info'%>">
+                                <div class="message-body">
+                                    <%= message %>
+                                </div>
+                            </article>
+                        <% }%>
+
+                        <div class="field">
+                            <p class="control">
+                                <a class="button" href="/">
+                                    返回
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="message-body">
-        <%= message %>
+    <div class="column is-one-quarter-fullhd">
+        <div class="my-panel">
+            <div class="my-header">
+                关于
+            </div>
+            <div class="my-body">
+                出了一些问题
+            </div>
+        </div>
     </div>
-</article>
+</div>
+
+
 <%- include('./partials/footer') %>
